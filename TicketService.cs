@@ -19,7 +19,7 @@ namespace TicketApp
             allTickets.Add(new TicketModel(GenerateNewId(), contactName, title, note));
         }
 
-        public List<TicketModel> GetAllTickets()
+        public List<TicketModel> GetOpenTickets()
         {
             return allTickets;
         }

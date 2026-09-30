@@ -12,7 +12,7 @@ namespace TicketApp
         public string ContactName { get; set; }
         public string Title { get; set; }
 
-        private List<string> notes;
+        private List<string> notes = new List<string>();
         public List<string> Notes()
         {
             return notes;
@@ -21,12 +21,18 @@ namespace TicketApp
         {
             notes.Add(note);
         }
+
+        public string LatestNote()
+        {
+            return notes[notes.Count()-1];
+        }
         public TicketStatus Status { get; set; }
         public TicketModel(int id, string name, string title, string note)
         {
             Id = id;
             ContactName = name;
             Title = title;
+            AddNote(note);
         }
     }
 }

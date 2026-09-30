@@ -34,7 +34,7 @@
             btnPendingTickets = new RadioButton();
             btnResolvedTickets = new RadioButton();
             groupBoxStatusTickets = new GroupBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanelTickets = new FlowLayoutPanel();
             groupBoxStatusTickets.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             btnShowAllTickets.TabIndex = 1;
             btnShowAllTickets.Text = "Show All tickets";
             btnShowAllTickets.UseVisualStyleBackColor = true;
+            btnShowAllTickets.Click += btnShowAllTickets_Click;
             // 
             // btnOpenTickets
             // 
@@ -100,19 +101,19 @@
             groupBoxStatusTickets.TabStop = false;
             groupBoxStatusTickets.Text = "Select status of tickets";
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanelTickets
             // 
-            flowLayoutPanel1.Location = new Point(18, 246);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(752, 182);
-            flowLayoutPanel1.TabIndex = 6;
+            flowLayoutPanelTickets.Location = new Point(18, 246);
+            flowLayoutPanelTickets.Name = "flowLayoutPanelTickets";
+            flowLayoutPanelTickets.Size = new Size(752, 182);
+            flowLayoutPanelTickets.TabIndex = 6;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(flowLayoutPanelTickets);
             Controls.Add(groupBoxStatusTickets);
             Controls.Add(btnShowAllTickets);
             Controls.Add(btnAddTicket);
@@ -132,6 +133,6 @@
         private RadioButton btnPendingTickets;
         private RadioButton btnResolvedTickets;
         private GroupBox groupBoxStatusTickets;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanelTickets;
     }
 }
