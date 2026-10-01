@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             btnAddTicket = new Button();
-            btnShowAllTickets = new Button();
             btnOpenTickets = new RadioButton();
             btnPendingTickets = new RadioButton();
             btnResolvedTickets = new RadioButton();
@@ -59,17 +58,6 @@
             btnAddTicket.UseVisualStyleBackColor = true;
             btnAddTicket.Click += btnAddTicket_Click;
             // 
-            // btnShowAllTickets
-            // 
-            btnShowAllTickets.Location = new Point(14, 32);
-            btnShowAllTickets.Margin = new Padding(3, 4, 3, 4);
-            btnShowAllTickets.Name = "btnShowAllTickets";
-            btnShowAllTickets.Size = new Size(157, 31);
-            btnShowAllTickets.TabIndex = 1;
-            btnShowAllTickets.Text = "Show All tickets";
-            btnShowAllTickets.UseVisualStyleBackColor = true;
-            btnShowAllTickets.Click += btnShowAllTickets_Click;
-            // 
             // btnOpenTickets
             // 
             btnOpenTickets.AutoSize = true;
@@ -82,6 +70,7 @@
             btnOpenTickets.TabStop = true;
             btnOpenTickets.Text = "OpenTickets";
             btnOpenTickets.UseVisualStyleBackColor = true;
+            btnOpenTickets.CheckedChanged += btnOpenTickets_CheckedChanged;
             // 
             // btnPendingTickets
             // 
@@ -93,6 +82,7 @@
             btnPendingTickets.TabIndex = 3;
             btnPendingTickets.Text = "Pending Tickets";
             btnPendingTickets.UseVisualStyleBackColor = true;
+            btnPendingTickets.CheckedChanged += btnPendingTickets_CheckedChanged;
             // 
             // btnResolvedTickets
             // 
@@ -104,6 +94,7 @@
             btnResolvedTickets.TabIndex = 4;
             btnResolvedTickets.Text = "Resolved Tickets";
             btnResolvedTickets.UseVisualStyleBackColor = true;
+            btnResolvedTickets.CheckedChanged += btnResolvedTickets_CheckedChanged;
             // 
             // groupBoxStatusTickets
             // 
@@ -221,7 +212,6 @@
             Controls.Add(groupBoxAddTicket);
             Controls.Add(flowLayoutPanelTickets);
             Controls.Add(groupBoxStatusTickets);
-            Controls.Add(btnShowAllTickets);
             Controls.Add(btnAddTicket);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
@@ -237,7 +227,6 @@
         #endregion
 
         private Button btnAddTicket;
-        private Button btnShowAllTickets;
         private RadioButton btnOpenTickets;
         private RadioButton btnPendingTickets;
         private RadioButton btnResolvedTickets;

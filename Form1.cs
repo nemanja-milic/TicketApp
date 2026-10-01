@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TicketApp
 {
     public partial class Form1 : Form
@@ -10,30 +12,10 @@ namespace TicketApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
-        }
-
-        private void btnShowAllTickets_Click(object sender, EventArgs e)
-        {
-
             List<TicketModel> list = TicketService.GetOpenTickets();
+            DisplayTickets(list);
 
-            foreach (TicketModel ticket in list)
-            {
-                GroupBox groupBox = new GroupBox();
-
-                groupBox.Text = $"" +
-                    $"ID - {ticket.Id} \n" +
-                    $"Contact Name - {ticket.ContactName} \n" +
-                    $"Title - {ticket.Title}  \n" +
-                    $"Latest note - {ticket.LatestNote()}"
-
-                    ;
-                flowLayoutPanelTickets.Controls.Add(groupBox);
-            }
         }
-
         private void btnAddTicket_Click(object sender, EventArgs e)
         {
             groupBoxAddTicket.Visible = true;
@@ -64,6 +46,43 @@ namespace TicketApp
         {
             ClearAddTicketTxtInputs();
             groupBoxAddTicket.Visible = false;
+        }
+        private void btnOpenTickets_CheckedChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanelTickets.Controls.Clear();
+            List<TicketModel> list = TicketService.GetOpenTickets();
+            DisplayTickets(list);
+        }
+
+        private void btnPendingTickets_CheckedChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanelTickets.Controls.Clear();
+            List<TicketModel> list = TicketService.GetOpenTickets();
+            DisplayTickets(list);
+        }
+
+        private void btnResolvedTickets_CheckedChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanelTickets.Controls.Clear();
+            List<TicketModel> list = TicketService.GetOpenTickets();
+            DisplayTickets(list);
+        }
+
+        private void DisplayTickets(List<TicketModel> list)
+        {
+            foreach (TicketModel ticket in list)
+            {
+                GroupBox groupBox = new GroupBox();
+
+                groupBox.Text = $"" +
+                    $"ID - {ticket.Id} \n" +
+                    $"Contact Name - {ticket.ContactName} \n" +
+                    $"Title - {ticket.Title}  \n" +
+                    $"Latest note - {ticket.LatestNote()}"
+
+                    ;
+                flowLayoutPanelTickets.Controls.Add(groupBox);
+            }
         }
 
         private void ClearAddTicketTxtInputs()

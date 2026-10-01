@@ -41,6 +41,20 @@ namespace TicketApp
                 .ToList();
         }
 
+        public List<TicketModel> GetPendingTickets()
+        {
+            return allTickets
+                .Where(ticket => ticket.Status == TicketStatus.Pending)
+                .ToList();
+        }
+
+        public List<TicketModel> GetResolvedTickets()
+        {
+            return allTickets
+                .Where(ticket => ticket.Status == TicketStatus.Resolved)
+                .ToList();
+        }
+
         public int GenerateNewId()
         {
             int countOfAllTickets = allTickets.Count();
