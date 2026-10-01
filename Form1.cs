@@ -57,11 +57,20 @@ namespace TicketApp
                 return;
             }
             TicketService.AddTicket(txtContactName.Text, txtTitle.Text, txtNote.Text);
+            ClearAddTicketTxtInputs();
         }
 
         private void btnCancelTicket_Click(object sender, EventArgs e)
         {
+            ClearAddTicketTxtInputs();
             groupBoxAddTicket.Visible = false;
+        }
+
+        private void ClearAddTicketTxtInputs()
+        {
+            txtContactName.Text = "";
+            txtTitle.Text = "";
+            txtNote.Text = "";
         }
     }
 }
