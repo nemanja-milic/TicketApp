@@ -16,6 +16,21 @@ namespace TicketApp
 
         public void AddTicket(string contactName, string title, string note)
         {
+            if(string.IsNullOrEmpty(contactName))
+            {
+                Console.WriteLine("Contact Name has to entered");
+                return;
+            }
+            if (string.IsNullOrEmpty(title))
+            {
+                Console.WriteLine("Title has to entered");
+                return;
+            }
+            if (string.IsNullOrEmpty(note))
+            {
+                Console.WriteLine("Note has to entered");
+                return;
+            }
             allTickets.Add(new TicketModel(GenerateNewId(), contactName, title, note));
         }
 

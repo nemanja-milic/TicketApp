@@ -33,5 +33,35 @@ namespace TicketApp
                 flowLayoutPanelTickets.Controls.Add(groupBox);
             }
         }
+
+        private void btnAddTicket_Click(object sender, EventArgs e)
+        {
+            groupBoxAddTicket.Visible = true;
+        }
+
+        private void btnSaveNewTicket_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtContactName.Text))
+            {
+                MessageBox.Show("Contact Name has to entered");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtTitle.Text))
+            {
+                MessageBox.Show("Title has to entered");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtNote.Text))
+            {
+                MessageBox.Show("Note has to entered");
+                return;
+            }
+            TicketService.AddTicket(txtContactName.Text, txtTitle.Text, txtNote.Text);
+        }
+
+        private void btnCancelTicket_Click(object sender, EventArgs e)
+        {
+            groupBoxAddTicket.Visible = false;
+        }
     }
 }
