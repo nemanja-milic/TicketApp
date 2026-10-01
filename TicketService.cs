@@ -21,7 +21,9 @@ namespace TicketApp
 
         public List<TicketModel> GetOpenTickets()
         {
-            return allTickets;
+            return allTickets
+                .Where(ticket => ticket.Status == TicketStatus.Open)
+                .ToList();
         }
 
         public int GenerateNewId()

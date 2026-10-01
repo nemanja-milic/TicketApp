@@ -16,7 +16,8 @@ namespace TicketApp
 
         private void btnShowAllTickets_Click(object sender, EventArgs e)
         {
-            List<TicketModel> list = TicketService.GetAllTickets();
+
+            List<TicketModel> list = TicketService.GetOpenTickets();
 
             foreach (TicketModel ticket in list)
             {

@@ -33,6 +33,7 @@ namespace TicketApp
             ContactName = name;
             Title = title;
             AddNote(note);
+            Status = TicketStatus.Open;
         }
     }
 }
