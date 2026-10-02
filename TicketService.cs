@@ -34,6 +34,40 @@ namespace TicketApp
             allTickets.Add(new TicketModel(GenerateNewId(), contactName, title, note));
         }
 
+        public void EditTicket(int id, string contactName, string title, string note, TicketStatus ticketStatus)
+        {
+            if (string.IsNullOrEmpty(contactName))
+            {
+                Console.WriteLine("please insert value for the contact name");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(title))
+            {
+                Console.WriteLine("please insert value for the title");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(note))
+            {
+                Console.WriteLine("please insert value for the title");
+                return;
+            }
+
+            var editedTicketIndex = allTickets.FindIndex((ticket)=> ticket.Id == id);
+                    
+            if(editedTicketIndex == -1)
+            {
+                Console.WriteLine("Please provide a valid ID");
+                return;
+            }
+
+            allTickets[editedTicketIndex].ContactName = contactName;
+            allTickets[editedTicketIndex].Title = title;
+            allTickets[editedTicketIndex].AddNote(note);
+            allTickets[editedTicketIndex].Status = ticketStatus;
+        }
+
         public List<TicketModel> GetOpenTickets()
         {
             return allTickets
