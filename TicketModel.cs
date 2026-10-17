@@ -22,9 +22,15 @@ namespace TicketApp
             notes.Add(note);
         }
 
-        public string LatestNote()
+        public string? LatestNote()
         {
-            return notes[notes.Count()-1];
+            if (notes.Count <= 0)
+            {
+                Console.WriteLine("No notes for this ticket");
+                return null;
+            }
+            return notes[notes.Count-1];
+
         }
         public TicketStatus Status { get; set; }
         public TicketModel(int id, string name, string title, string note)

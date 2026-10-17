@@ -95,7 +95,7 @@ namespace TicketApp
             }
             txtEditTitle.Text = EditedTicket.Title;
             txtEditNote.Text = EditedTicket.Notes()[0]; // for now it will be only first note
-
+            
         }
 
         private void DisplayTickets(List<TicketModel> list)
@@ -131,13 +131,20 @@ namespace TicketApp
         private void btnEditSave_Click(object sender, EventArgs e)
         {
             TicketStatus ticketStatus = TicketStatus.Open;
-            if(btnEditOpen.Checked)
+            if (btnEditOpen.Checked)
                 ticketStatus = TicketStatus.Resolved;
             if (btnEditPending.Checked)
                 ticketStatus = TicketStatus.Pending;
-            if(btnEditResolved.Checked)
+            if (btnEditResolved.Checked)
                 ticketStatus = TicketStatus.Resolved;
             TicketService.EditTicket(EditedTicket.Id, txtEditTitle.Text, txtEditTitle.Text, txtEditNote.Text, ticketStatus);
+            MessageBox.Show("Ticket is edited");
+            groupBoxEditTicket.Visible = false;
+        }
+
+        private void btnEditCancel_Click(object sender, EventArgs e)
+        {
+            groupBoxEditTicket.Visible = false;
         }
     }
 }

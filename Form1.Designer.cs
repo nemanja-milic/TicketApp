@@ -54,6 +54,8 @@
             label3 = new Label();
             txtEditTitle = new TextBox();
             txtEditNote = new RichTextBox();
+            txtTitleSearch = new TextBox();
+            btnSearch = new Button();
             groupBoxStatusTickets.SuspendLayout();
             groupBoxAddTicket.SuspendLayout();
             groupBoxEditTicket.SuspendLayout();
@@ -62,9 +64,10 @@
             // 
             // btnAddTicket
             // 
-            btnAddTicket.Location = new Point(695, 24);
+            btnAddTicket.Location = new Point(1023, 13);
+            btnAddTicket.Margin = new Padding(3, 4, 3, 4);
             btnAddTicket.Name = "btnAddTicket";
-            btnAddTicket.Size = new Size(75, 23);
+            btnAddTicket.Size = new Size(86, 31);
             btnAddTicket.TabIndex = 0;
             btnAddTicket.Text = "Add ticket";
             btnAddTicket.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             btnOpenTickets.AutoSize = true;
             btnOpenTickets.Checked = true;
-            btnOpenTickets.Location = new Point(6, 22);
+            btnOpenTickets.Location = new Point(7, 29);
+            btnOpenTickets.Margin = new Padding(3, 4, 3, 4);
             btnOpenTickets.Name = "btnOpenTickets";
-            btnOpenTickets.Size = new Size(91, 19);
+            btnOpenTickets.Size = new Size(111, 24);
             btnOpenTickets.TabIndex = 2;
             btnOpenTickets.TabStop = true;
             btnOpenTickets.Text = "OpenTickets";
@@ -86,9 +90,10 @@
             // btnPendingTickets
             // 
             btnPendingTickets.AutoSize = true;
-            btnPendingTickets.Location = new Point(6, 47);
+            btnPendingTickets.Location = new Point(7, 63);
+            btnPendingTickets.Margin = new Padding(3, 4, 3, 4);
             btnPendingTickets.Name = "btnPendingTickets";
-            btnPendingTickets.Size = new Size(109, 19);
+            btnPendingTickets.Size = new Size(132, 24);
             btnPendingTickets.TabIndex = 3;
             btnPendingTickets.Text = "Pending Tickets";
             btnPendingTickets.UseVisualStyleBackColor = true;
@@ -97,9 +102,10 @@
             // btnResolvedTickets
             // 
             btnResolvedTickets.AutoSize = true;
-            btnResolvedTickets.Location = new Point(6, 75);
+            btnResolvedTickets.Location = new Point(7, 100);
+            btnResolvedTickets.Margin = new Padding(3, 4, 3, 4);
             btnResolvedTickets.Name = "btnResolvedTickets";
-            btnResolvedTickets.Size = new Size(112, 19);
+            btnResolvedTickets.Size = new Size(139, 24);
             btnResolvedTickets.TabIndex = 4;
             btnResolvedTickets.Text = "Resolved Tickets";
             btnResolvedTickets.UseVisualStyleBackColor = true;
@@ -110,69 +116,69 @@
             groupBoxStatusTickets.Controls.Add(btnOpenTickets);
             groupBoxStatusTickets.Controls.Add(btnResolvedTickets);
             groupBoxStatusTickets.Controls.Add(btnPendingTickets);
-            groupBoxStatusTickets.Location = new Point(12, 86);
+            groupBoxStatusTickets.Location = new Point(21, 176);
+            groupBoxStatusTickets.Margin = new Padding(3, 4, 3, 4);
             groupBoxStatusTickets.Name = "groupBoxStatusTickets";
-            groupBoxStatusTickets.Size = new Size(200, 100);
+            groupBoxStatusTickets.Padding = new Padding(3, 4, 3, 4);
+            groupBoxStatusTickets.Size = new Size(229, 136);
             groupBoxStatusTickets.TabIndex = 5;
             groupBoxStatusTickets.TabStop = false;
             groupBoxStatusTickets.Text = "Select status of tickets";
             // 
             // flowLayoutPanelTickets
             // 
-            flowLayoutPanelTickets.Location = new Point(18, 246);
+            flowLayoutPanelTickets.Location = new Point(21, 328);
+            flowLayoutPanelTickets.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanelTickets.Name = "flowLayoutPanelTickets";
-            flowLayoutPanelTickets.Size = new Size(752, 182);
+            flowLayoutPanelTickets.Size = new Size(1088, 392);
             flowLayoutPanelTickets.TabIndex = 6;
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(5, 45);
-            txtTitle.Margin = new Padding(3, 2, 3, 2);
+            txtTitle.Location = new Point(6, 60);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(110, 23);
+            txtTitle.Size = new Size(125, 27);
             txtTitle.TabIndex = 7;
             // 
             // txtContactName
             // 
-            txtContactName.Location = new Point(276, 45);
-            txtContactName.Margin = new Padding(3, 2, 3, 2);
+            txtContactName.Location = new Point(315, 60);
             txtContactName.Name = "txtContactName";
-            txtContactName.Size = new Size(110, 23);
+            txtContactName.Size = new Size(125, 27);
             txtContactName.TabIndex = 10;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(5, 27);
+            lblTitle.Location = new Point(6, 36);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(30, 15);
+            lblTitle.Size = new Size(38, 20);
             lblTitle.TabIndex = 11;
             lblTitle.Text = "Title";
             // 
             // lblContact
             // 
             lblContact.AutoSize = true;
-            lblContact.Location = new Point(294, 28);
+            lblContact.Location = new Point(336, 37);
             lblContact.Name = "lblContact";
-            lblContact.Size = new Size(84, 15);
+            lblContact.Size = new Size(104, 20);
             lblContact.TabIndex = 12;
             lblContact.Text = "Contact Name";
             // 
             // lblNote
             // 
             lblNote.AutoSize = true;
-            lblNote.Location = new Point(5, 78);
+            lblNote.Location = new Point(6, 104);
             lblNote.Name = "lblNote";
-            lblNote.Size = new Size(33, 15);
+            lblNote.Size = new Size(42, 20);
             lblNote.TabIndex = 13;
             lblNote.Text = "Note";
             // 
             // txtNote
             // 
-            txtNote.Location = new Point(5, 95);
-            txtNote.Margin = new Padding(3, 2, 3, 2);
+            txtNote.Location = new Point(6, 127);
             txtNote.Name = "txtNote";
-            txtNote.Size = new Size(380, 54);
+            txtNote.Size = new Size(434, 71);
             txtNote.TabIndex = 14;
             txtNote.Text = "";
             // 
@@ -186,21 +192,18 @@
             groupBoxAddTicket.Controls.Add(lblTitle);
             groupBoxAddTicket.Controls.Add(txtTitle);
             groupBoxAddTicket.Controls.Add(txtNote);
-            groupBoxAddTicket.Location = new Point(370, 68);
-            groupBoxAddTicket.Margin = new Padding(3, 2, 3, 2);
+            groupBoxAddTicket.Location = new Point(652, 83);
             groupBoxAddTicket.Name = "groupBoxAddTicket";
-            groupBoxAddTicket.Padding = new Padding(3, 2, 3, 2);
-            groupBoxAddTicket.Size = new Size(400, 173);
+            groupBoxAddTicket.Size = new Size(457, 231);
             groupBoxAddTicket.TabIndex = 0;
             groupBoxAddTicket.TabStop = false;
             groupBoxAddTicket.Visible = false;
             // 
             // btnCancelTicket
             // 
-            btnCancelTicket.Location = new Point(303, 150);
-            btnCancelTicket.Margin = new Padding(3, 2, 3, 2);
+            btnCancelTicket.Location = new Point(346, 200);
             btnCancelTicket.Name = "btnCancelTicket";
-            btnCancelTicket.Size = new Size(82, 22);
+            btnCancelTicket.Size = new Size(94, 29);
             btnCancelTicket.TabIndex = 16;
             btnCancelTicket.Text = "Cancel";
             btnCancelTicket.UseVisualStyleBackColor = true;
@@ -208,10 +211,9 @@
             // 
             // btnSaveNewTicket
             // 
-            btnSaveNewTicket.Location = new Point(12, 150);
-            btnSaveNewTicket.Margin = new Padding(3, 2, 3, 2);
+            btnSaveNewTicket.Location = new Point(14, 200);
             btnSaveNewTicket.Name = "btnSaveNewTicket";
-            btnSaveNewTicket.Size = new Size(82, 22);
+            btnSaveNewTicket.Size = new Size(94, 29);
             btnSaveNewTicket.TabIndex = 15;
             btnSaveNewTicket.Text = "Save";
             btnSaveNewTicket.UseVisualStyleBackColor = true;
@@ -226,29 +228,30 @@
             groupBoxEditTicket.Controls.Add(label3);
             groupBoxEditTicket.Controls.Add(txtEditTitle);
             groupBoxEditTicket.Controls.Add(txtEditNote);
-            groupBoxEditTicket.Location = new Point(267, 67);
-            groupBoxEditTicket.Margin = new Padding(3, 2, 3, 2);
+            groupBoxEditTicket.Location = new Point(535, 90);
             groupBoxEditTicket.Name = "groupBoxEditTicket";
-            groupBoxEditTicket.Padding = new Padding(3, 2, 3, 2);
-            groupBoxEditTicket.Size = new Size(400, 173);
+            groupBoxEditTicket.Size = new Size(457, 231);
             groupBoxEditTicket.TabIndex = 17;
             groupBoxEditTicket.TabStop = false;
             groupBoxEditTicket.Visible = false;
             // 
             // btnEditCancel
             // 
-            btnEditCancel.Location = new Point(310, 151);
+            btnEditCancel.Location = new Point(354, 201);
+            btnEditCancel.Margin = new Padding(3, 4, 3, 4);
             btnEditCancel.Name = "btnEditCancel";
-            btnEditCancel.Size = new Size(75, 23);
+            btnEditCancel.Size = new Size(86, 31);
             btnEditCancel.TabIndex = 22;
             btnEditCancel.Text = "Cancel";
             btnEditCancel.UseVisualStyleBackColor = true;
+            btnEditCancel.Click += btnEditCancel_Click;
             // 
             // btnEditSave
             // 
-            btnEditSave.Location = new Point(10, 151);
+            btnEditSave.Location = new Point(11, 201);
+            btnEditSave.Margin = new Padding(3, 4, 3, 4);
             btnEditSave.Name = "btnEditSave";
-            btnEditSave.Size = new Size(75, 23);
+            btnEditSave.Size = new Size(86, 31);
             btnEditSave.TabIndex = 21;
             btnEditSave.Text = "Save";
             btnEditSave.UseVisualStyleBackColor = true;
@@ -259,18 +262,21 @@
             groupBoxEdit.Controls.Add(btnEditResolved);
             groupBoxEdit.Controls.Add(btnEditOpen);
             groupBoxEdit.Controls.Add(btnEditPending);
-            groupBoxEdit.Location = new Point(270, 1);
+            groupBoxEdit.Location = new Point(309, 1);
+            groupBoxEdit.Margin = new Padding(3, 4, 3, 4);
             groupBoxEdit.Name = "groupBoxEdit";
-            groupBoxEdit.Size = new Size(115, 89);
+            groupBoxEdit.Padding = new Padding(3, 4, 3, 4);
+            groupBoxEdit.Size = new Size(131, 119);
             groupBoxEdit.TabIndex = 20;
             groupBoxEdit.TabStop = false;
             // 
             // btnEditResolved
             // 
             btnEditResolved.AutoSize = true;
-            btnEditResolved.Location = new Point(16, 72);
+            btnEditResolved.Location = new Point(18, 96);
+            btnEditResolved.Margin = new Padding(3, 4, 3, 4);
             btnEditResolved.Name = "btnEditResolved";
-            btnEditResolved.Size = new Size(72, 19);
+            btnEditResolved.Size = new Size(90, 24);
             btnEditResolved.TabIndex = 19;
             btnEditResolved.Text = "Resolved";
             btnEditResolved.UseVisualStyleBackColor = true;
@@ -278,9 +284,10 @@
             // btnEditOpen
             // 
             btnEditOpen.AutoSize = true;
-            btnEditOpen.Location = new Point(16, 22);
+            btnEditOpen.Location = new Point(18, 29);
+            btnEditOpen.Margin = new Padding(3, 4, 3, 4);
             btnEditOpen.Name = "btnEditOpen";
-            btnEditOpen.Size = new Size(54, 19);
+            btnEditOpen.Size = new Size(66, 24);
             btnEditOpen.TabIndex = 17;
             btnEditOpen.Text = "Open";
             btnEditOpen.UseVisualStyleBackColor = true;
@@ -288,9 +295,10 @@
             // btnEditPending
             // 
             btnEditPending.AutoSize = true;
-            btnEditPending.Location = new Point(16, 47);
+            btnEditPending.Location = new Point(18, 63);
+            btnEditPending.Margin = new Padding(3, 4, 3, 4);
             btnEditPending.Name = "btnEditPending";
-            btnEditPending.Size = new Size(69, 19);
+            btnEditPending.Size = new Size(83, 24);
             btnEditPending.TabIndex = 18;
             btnEditPending.Text = "Pending";
             btnEditPending.UseVisualStyleBackColor = true;
@@ -298,48 +306,65 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(5, 77);
+            label2.Location = new Point(6, 103);
             label2.Name = "label2";
-            label2.Size = new Size(33, 15);
+            label2.Size = new Size(42, 20);
             label2.TabIndex = 13;
             label2.Text = "Note";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(5, 26);
+            label3.Location = new Point(6, 35);
             label3.Name = "label3";
-            label3.Size = new Size(30, 15);
+            label3.Size = new Size(38, 20);
             label3.TabIndex = 11;
             label3.Text = "Title";
             // 
             // txtEditTitle
             // 
-            txtEditTitle.Location = new Point(5, 45);
-            txtEditTitle.Margin = new Padding(3, 2, 3, 2);
+            txtEditTitle.Location = new Point(6, 60);
             txtEditTitle.Name = "txtEditTitle";
-            txtEditTitle.Size = new Size(110, 23);
+            txtEditTitle.Size = new Size(125, 27);
             txtEditTitle.TabIndex = 7;
             // 
             // txtEditNote
             // 
-            txtEditNote.Location = new Point(5, 95);
-            txtEditNote.Margin = new Padding(3, 2, 3, 2);
+            txtEditNote.Location = new Point(6, 127);
             txtEditNote.Name = "txtEditNote";
-            txtEditNote.Size = new Size(380, 54);
+            txtEditNote.Size = new Size(434, 71);
             txtEditNote.TabIndex = 14;
             txtEditNote.Text = "";
             // 
+            // txtTitleSearch
+            // 
+            txtTitleSearch.Location = new Point(28, 36);
+            txtTitleSearch.Name = "txtTitleSearch";
+            txtTitleSearch.Size = new Size(125, 27);
+            txtTitleSearch.TabIndex = 18;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(169, 36);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(129, 27);
+            btnSearch.TabIndex = 19;
+            btnSearch.Text = "Search by title";
+            btnSearch.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1121, 723);
+            Controls.Add(btnSearch);
+            Controls.Add(txtTitleSearch);
             Controls.Add(groupBoxEditTicket);
             Controls.Add(groupBoxAddTicket);
             Controls.Add(flowLayoutPanelTickets);
             Controls.Add(groupBoxStatusTickets);
             Controls.Add(btnAddTicket);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -352,6 +377,7 @@
             groupBoxEdit.ResumeLayout(false);
             groupBoxEdit.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -387,5 +413,7 @@
         private TextBox txtEditTitle;
         private Button btnEditCancel;
         private Button btnEditSave;
+        private TextBox txtTitleSearch;
+        private Button btnSearch;
     }
 }
