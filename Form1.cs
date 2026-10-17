@@ -7,6 +7,8 @@ namespace TicketApp
         TicketService TicketService = new TicketService();
 
         TicketModel EditedTicket;
+
+        TicketStatus SelectedRadioStatus;
         public Form1()
         {
             InitializeComponent();
@@ -52,23 +54,17 @@ namespace TicketApp
         }
         private void btnOpenTickets_CheckedChanged(object sender, EventArgs e)
         {
-            flowLayoutPanelTickets.Controls.Clear();
-            List<TicketModel> list = TicketService.GetOpenTickets();
-            DisplayTickets(list);
+            SelectedRadioStatus = TicketStatus.Open;
         }
 
         private void btnPendingTickets_CheckedChanged(object sender, EventArgs e)
         {
-            flowLayoutPanelTickets.Controls.Clear();
-            List<TicketModel> list = TicketService.GetPendingTickets();
-            DisplayTickets(list);
+            SelectedRadioStatus = TicketStatus.Pending;
         }
 
         private void btnResolvedTickets_CheckedChanged(object sender, EventArgs e)
         {
-            flowLayoutPanelTickets.Controls.Clear();
-            List<TicketModel> list = TicketService.GetResolvedTickets();
-            DisplayTickets(list);
+            SelectedRadioStatus = TicketStatus.Resolved;
         }
 
         private void EditTicket(object sender, EventArgs e)
@@ -95,11 +91,12 @@ namespace TicketApp
             }
             txtEditTitle.Text = EditedTicket.Title;
             txtEditNote.Text = EditedTicket.Notes()[0]; // for now it will be only first note
-            
+
         }
 
         private void DisplayTickets(List<TicketModel> list)
         {
+            flowLayoutPanelTickets.Controls.Clear();
             foreach (TicketModel ticket in list)
             {
                 GroupBox groupBox = new GroupBox();
@@ -145,6 +142,12 @@ namespace TicketApp
         private void btnEditCancel_Click(object sender, EventArgs e)
         {
             groupBoxEditTicket.Visible = false;
+        }
+
+        private void btnRunFilters_Click(object sender, EventArgs e)
+        {
+            List<TicketModel> listOfFilteredTickets = TicketService.FilterTickets(txtTitleSearch.Text, SelectedRadioStatus);
+            DisplayTickets(listOfFilteredTickets);
         }
     }
 }

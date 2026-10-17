@@ -68,6 +68,18 @@ namespace TicketApp
             allTickets[editedTicketIndex].Status = ticketStatus;
         }
 
+        public List<TicketModel> FilterTickets(string title, TicketStatus ticketStatus)
+        {
+            if(string.IsNullOrEmpty(title))
+            {
+                return allTickets.Where(ticket => ticket.Status == ticketStatus).ToList();
+            }
+            string normalizedTitle = title.ToLower();
+            return allTickets.
+                Where(ticket => ticket.Title.Contains(normalizedTitle, StringComparison.OrdinalIgnoreCase) && ticket.Status == ticketStatus)
+                .ToList();
+        }
+
         public List<TicketModel> GetOpenTickets()
         {
             return allTickets

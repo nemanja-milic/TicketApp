@@ -55,7 +55,7 @@
             txtEditTitle = new TextBox();
             txtEditNote = new RichTextBox();
             txtTitleSearch = new TextBox();
-            btnSearch = new Button();
+            btnRunFilters = new Button();
             groupBoxStatusTickets.SuspendLayout();
             groupBoxAddTicket.SuspendLayout();
             groupBoxEditTicket.SuspendLayout();
@@ -116,7 +116,7 @@
             groupBoxStatusTickets.Controls.Add(btnOpenTickets);
             groupBoxStatusTickets.Controls.Add(btnResolvedTickets);
             groupBoxStatusTickets.Controls.Add(btnPendingTickets);
-            groupBoxStatusTickets.Location = new Point(21, 176);
+            groupBoxStatusTickets.Location = new Point(28, 77);
             groupBoxStatusTickets.Margin = new Padding(3, 4, 3, 4);
             groupBoxStatusTickets.Name = "groupBoxStatusTickets";
             groupBoxStatusTickets.Padding = new Padding(3, 4, 3, 4);
@@ -343,21 +343,22 @@
             txtTitleSearch.Size = new Size(125, 27);
             txtTitleSearch.TabIndex = 18;
             // 
-            // btnSearch
+            // btnRunFilters
             // 
-            btnSearch.Location = new Point(169, 36);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(129, 27);
-            btnSearch.TabIndex = 19;
-            btnSearch.Text = "Search by title";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnRunFilters.Location = new Point(28, 283);
+            btnRunFilters.Name = "btnRunFilters";
+            btnRunFilters.Size = new Size(129, 27);
+            btnRunFilters.TabIndex = 19;
+            btnRunFilters.Text = "Filter Tickets";
+            btnRunFilters.UseVisualStyleBackColor = true;
+            btnRunFilters.Click += btnRunFilters_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1121, 723);
-            Controls.Add(btnSearch);
+            Controls.Add(btnRunFilters);
             Controls.Add(txtTitleSearch);
             Controls.Add(groupBoxEditTicket);
             Controls.Add(groupBoxAddTicket);
@@ -414,6 +415,6 @@
         private Button btnEditCancel;
         private Button btnEditSave;
         private TextBox txtTitleSearch;
-        private Button btnSearch;
+        private Button btnRunFilters;
     }
 }
