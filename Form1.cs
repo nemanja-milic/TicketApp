@@ -16,6 +16,7 @@ namespace TicketApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            SelectedRadioStatus = TicketStatus.Open;
             List<TicketModel> list = TicketService.GetOpenTickets();
             DisplayTickets(list);
 
@@ -128,15 +129,19 @@ namespace TicketApp
         private void btnEditSave_Click(object sender, EventArgs e)
         {
             TicketStatus ticketStatus = TicketStatus.Open;
-            if (btnEditOpen.Checked)
-                ticketStatus = TicketStatus.Resolved;
-            if (btnEditPending.Checked)
+            if(btnEditPending.Checked)
+            {
                 ticketStatus = TicketStatus.Pending;
-            if (btnEditResolved.Checked)
+            }
+            if(btnEditResolved.Checked)
+            {
                 ticketStatus = TicketStatus.Resolved;
-            TicketService.EditTicket(EditedTicket.Id, txtEditTitle.Text, txtEditTitle.Text, txtEditNote.Text, ticketStatus);
+            }
+
+            TicketService.EditTicket(EditedTicket.Id, txtEditTitle.Text, txtEditNote.Text, ticketStatus);
             MessageBox.Show("Ticket is edited");
             groupBoxEditTicket.Visible = false;
+            btnRunFilters_Click(sender, e);
         }
 
         private void btnEditCancel_Click(object sender, EventArgs e)

@@ -34,14 +34,8 @@ namespace TicketApp
             allTickets.Add(new TicketModel(GenerateNewId(), contactName, title, note));
         }
 
-        public void EditTicket(int id, string contactName, string title, string note, TicketStatus ticketStatus)
+        public void EditTicket(int id, string title, string note, TicketStatus ticketStatus)
         {
-            if (string.IsNullOrEmpty(contactName))
-            {
-                Console.WriteLine("please insert value for the contact name");
-                return;
-            }
-
             if (string.IsNullOrEmpty(title))
             {
                 Console.WriteLine("please insert value for the title");
@@ -62,7 +56,6 @@ namespace TicketApp
                 return;
             }
 
-            allTickets[editedTicketIndex].ContactName = contactName;
             allTickets[editedTicketIndex].Title = title;
             allTickets[editedTicketIndex].AddNote(note);
             allTickets[editedTicketIndex].Status = ticketStatus;
