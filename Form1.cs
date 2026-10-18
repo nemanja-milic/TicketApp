@@ -9,6 +9,8 @@ namespace TicketApp
         TicketModel EditedTicket;
 
         TicketStatus SelectedRadioStatus;
+
+        private int TicketPerPage = 3;
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +21,7 @@ namespace TicketApp
             SelectedRadioStatus = TicketStatus.Open;
             List<TicketModel> list = TicketService.GetOpenTickets();
             DisplayTickets(list);
+            LoadPagination(3, list.Count);
 
         }
         private void btnAddTicket_Click(object sender, EventArgs e)
@@ -119,6 +122,47 @@ namespace TicketApp
             }
         }
 
+        private void LoadPagination(int ticketPerPage, int numberOfTickets)
+        {
+            if(numberOfTickets <= ticketPerPage)
+            {
+                flowLayoutPanelPagination.Visible = false;
+                return;
+            }
+
+            flowLayoutPanelPagination.Controls.Clear();
+
+            double total = numberOfTickets / ticketPerPage;
+
+            int numberOfPages = (int)Math.Ceiling(total); 
+
+            Label lbl = new Label();
+            lbl.Text = "Pages";
+            flowLayoutPanelPagination.Controls.Add(lbl);
+
+            for(int i = 1; i < numberOfPages +1 ; i++)
+            {
+                Button btn = new Button();
+                btn.Tag = i;
+                btn.Text = "" + i;
+                btn.Click += GoToPage;
+                flowLayoutPanelPagination.Controls.Add(btn);
+            }
+            flowLayoutPanelPagination.Visible = true;
+        }
+
+        private void GoToPage(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FilterTickets()
+        {
+            TicketRequest tRequest = TicketService.FilterTickets(txtTitleSearch.Text, SelectedRadioStatus);
+            DisplayTickets(tRequest.ListOfTickets);
+            LoadPagination(TicketPerPage, tRequest.TotalCountOfTickets);
+        }
+
         private void ClearAddTicketTxtInputs()
         {
             txtContactName.Text = "";
@@ -129,11 +173,11 @@ namespace TicketApp
         private void btnEditSave_Click(object sender, EventArgs e)
         {
             TicketStatus ticketStatus = TicketStatus.Open;
-            if(btnEditPending.Checked)
+            if (btnEditPending.Checked)
             {
                 ticketStatus = TicketStatus.Pending;
             }
-            if(btnEditResolved.Checked)
+            if (btnEditResolved.Checked)
             {
                 ticketStatus = TicketStatus.Resolved;
             }
@@ -141,7 +185,7 @@ namespace TicketApp
             TicketService.EditTicket(EditedTicket.Id, txtEditTitle.Text, txtEditNote.Text, ticketStatus);
             MessageBox.Show("Ticket is edited");
             groupBoxEditTicket.Visible = false;
-            btnRunFilters_Click(sender, e);
+            FilterTickets();
         }
 
         private void btnEditCancel_Click(object sender, EventArgs e)
@@ -151,8 +195,12 @@ namespace TicketApp
 
         private void btnRunFilters_Click(object sender, EventArgs e)
         {
-            List<TicketModel> listOfFilteredTickets = TicketService.FilterTickets(txtTitleSearch.Text, SelectedRadioStatus);
-            DisplayTickets(listOfFilteredTickets);
+            FilterTickets();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

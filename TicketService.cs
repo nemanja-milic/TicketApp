@@ -8,7 +8,9 @@ namespace TicketApp
 {
     internal class TicketService
     {
-        private List<TicketModel> allTickets = new List<TicketModel>(); 
+        private List<TicketModel> allTickets = new List<TicketModel>();
+
+        private int TicketPerPage = 3;
         public TicketService()
         {
             GenerateRndTickets();
@@ -61,16 +63,21 @@ namespace TicketApp
             allTickets[editedTicketIndex].Status = ticketStatus;
         }
 
-        public List<TicketModel> FilterTickets(string title, TicketStatus ticketStatus)
+        public TicketRequest FilterTickets(string title, TicketStatus ticketStatus)
         {
+            List<TicketModel> filteredTickets = new List<TicketModel>();
             if(string.IsNullOrEmpty(title))
             {
-                return allTickets.Where(ticket => ticket.Status == ticketStatus).ToList();
+                filteredTickets = allTickets.Where(ticket => ticket.Status == ticketStatus).Take(TicketPerPage).ToList();
+
+                return new TicketRequest(filteredTickets, allTickets.Count);
             }
             string normalizedTitle = title.ToLower();
-            return allTickets.
+            filteredTickets = allTickets.
                 Where(ticket => ticket.Title.Contains(normalizedTitle, StringComparison.OrdinalIgnoreCase) && ticket.Status == ticketStatus)
+                .Take(TicketPerPage)
                 .ToList();
+            return new TicketRequest(filteredTickets, allTickets.Count);
         }
 
         public List<TicketModel> GetOpenTickets()
@@ -105,6 +112,10 @@ namespace TicketApp
             AddTicket("Jack", "Haven`t received the package yet", "3 days latency");
             AddTicket("Michael", "Mine headsets are damaged", "Headsets are broken");
             AddTicket("Jack", "PC will not turn on", "PC have power, but just black screen");
+
+            AddTicket("Eli", "The PC will not load up", "power brick faulty");
+            AddTicket("Ben", "GXP headsets are damaged", "Headsets are broken");
+            AddTicket("Nick", "Cannot login to website", "incorrect password");
         }
     }
 }

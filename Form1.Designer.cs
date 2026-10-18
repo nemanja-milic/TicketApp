@@ -56,6 +56,10 @@
             txtEditNote = new RichTextBox();
             txtTitleSearch = new TextBox();
             btnRunFilters = new Button();
+            lblFilterTitle = new Label();
+            textBox1 = new TextBox();
+            lblContactName = new Label();
+            flowLayoutPanelPagination = new FlowLayoutPanel();
             groupBoxStatusTickets.SuspendLayout();
             groupBoxAddTicket.SuspendLayout();
             groupBoxEditTicket.SuspendLayout();
@@ -127,10 +131,10 @@
             // 
             // flowLayoutPanelTickets
             // 
-            flowLayoutPanelTickets.Location = new Point(21, 328);
+            flowLayoutPanelTickets.Location = new Point(12, 414);
             flowLayoutPanelTickets.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanelTickets.Name = "flowLayoutPanelTickets";
-            flowLayoutPanelTickets.Size = new Size(1088, 392);
+            flowLayoutPanelTickets.Size = new Size(1097, 306);
             flowLayoutPanelTickets.TabIndex = 6;
             // 
             // txtTitle
@@ -338,7 +342,7 @@
             // 
             // txtTitleSearch
             // 
-            txtTitleSearch.Location = new Point(28, 36);
+            txtTitleSearch.Location = new Point(32, 36);
             txtTitleSearch.Name = "txtTitleSearch";
             txtTitleSearch.Size = new Size(125, 27);
             txtTitleSearch.TabIndex = 18;
@@ -353,11 +357,48 @@
             btnRunFilters.UseVisualStyleBackColor = true;
             btnRunFilters.Click += btnRunFilters_Click;
             // 
+            // lblFilterTitle
+            // 
+            lblFilterTitle.AutoSize = true;
+            lblFilterTitle.Location = new Point(35, 13);
+            lblFilterTitle.Name = "lblFilterTitle";
+            lblFilterTitle.Size = new Size(38, 20);
+            lblFilterTitle.TabIndex = 20;
+            lblFilterTitle.Text = "Title";
+            lblFilterTitle.Click += label4_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(182, 36);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 21;
+            // 
+            // lblContactName
+            // 
+            lblContactName.AutoSize = true;
+            lblContactName.Location = new Point(182, 13);
+            lblContactName.Name = "lblContactName";
+            lblContactName.Size = new Size(101, 20);
+            lblContactName.TabIndex = 22;
+            lblContactName.Text = "Contact name";
+            // 
+            // flowLayoutPanelPagination
+            // 
+            flowLayoutPanelPagination.Location = new Point(435, 343);
+            flowLayoutPanelPagination.Name = "flowLayoutPanelPagination";
+            flowLayoutPanelPagination.Size = new Size(674, 64);
+            flowLayoutPanelPagination.TabIndex = 23;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1121, 723);
+            Controls.Add(flowLayoutPanelPagination);
+            Controls.Add(lblContactName);
+            Controls.Add(textBox1);
+            Controls.Add(lblFilterTitle);
             Controls.Add(btnRunFilters);
             Controls.Add(txtTitleSearch);
             Controls.Add(groupBoxEditTicket);
@@ -399,9 +440,8 @@
         private Button btnSaveNewTicket;
         private Button btnCancelTicket;
         private GroupBox groupBoxEditTicket;
-        private Button button1;
         private Button button2;
-        private Label label1;
+        private Label lblContactName;
         private Label label2;
         private TextBox textBox1;
         private Label label3;
@@ -416,5 +456,7 @@
         private Button btnEditSave;
         private TextBox txtTitleSearch;
         private Button btnRunFilters;
+        private Label lblFilterTitle;
+        private FlowLayoutPanel flowLayoutPanelPagination;
     }
 }
