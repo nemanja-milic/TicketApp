@@ -19,9 +19,7 @@ namespace TicketApp
         private void Form1_Load(object sender, EventArgs e)
         {
             SelectedRadioStatus = TicketStatus.Open;
-            List<TicketModel> list = TicketService.GetOpenTickets();
-            DisplayTickets(list);
-            LoadPagination(3, list.Count);
+            FilterTickets();
 
         }
         private void btnAddTicket_Click(object sender, EventArgs e)
@@ -122,7 +120,7 @@ namespace TicketApp
             }
         }
 
-        private void LoadPagination(int ticketPerPage, int numberOfTickets)
+        private void LoadPagination(int ticketPerPage, double numberOfTickets)
         {
             if(numberOfTickets <= ticketPerPage)
             {
@@ -134,17 +132,17 @@ namespace TicketApp
 
             double total = numberOfTickets / ticketPerPage;
 
-            int numberOfPages = (int)Math.Ceiling(total); 
+            int numberOfPages = (int)Math.Ceiling(total);
 
             Label lbl = new Label();
             lbl.Text = "Pages";
             flowLayoutPanelPagination.Controls.Add(lbl);
 
-            for(int i = 1; i < numberOfPages +1 ; i++)
+            for(int i = 1; i < numberOfPages + 1; i++)
             {
                 Button btn = new Button();
                 btn.Tag = i;
-                btn.Text = "" + i;
+                btn.Text = i + "";
                 btn.Click += GoToPage;
                 flowLayoutPanelPagination.Controls.Add(btn);
             }
@@ -153,12 +151,18 @@ namespace TicketApp
 
         private void GoToPage(object sender, EventArgs e)
         {
-
+            int pageNumber = 0;
+            Button btn = (Button)sender;
+            btn.BackColor = Color.RebeccaPurple;
+            if(int.TryParse(btn.Text, out pageNumber))
+            {
+                FilterTickets(pageNumber);
+            }
         }
 
-        private void FilterTickets()
+        private void FilterTickets(int page = 0)
         {
-            TicketRequest tRequest = TicketService.FilterTickets(txtTitleSearch.Text, SelectedRadioStatus);
+            TicketRequest tRequest = TicketService.FilterTickets(txtTitleSearch.Text, SelectedRadioStatus, page);
             DisplayTickets(tRequest.ListOfTickets);
             LoadPagination(TicketPerPage, tRequest.TotalCountOfTickets);
         }
